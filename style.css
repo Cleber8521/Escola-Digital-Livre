@@ -1,3 +1,65 @@
+/* Variaveis Globais (cores e fontes reutilizadas no CSS) */
+:root {
+    --color-primary: #1a1eff; /* cor principal */
+    --color-primary-dark: #4339CA; /* versão escura */
+    --color-text: #1e1b2e; /* cor do texto principal*/
+    --color-text-light: #6b7280; /* cor de texto secundário*/
+    --color-border: #E5E7EB; /* cor da borda */
+    --color-bg: #FFF; /* cor de fundo */
+    --font-main: 'Inter', sans-serif; /* fonte principal */
+
+}
+
+* {
+    margin: 0; /* Espaçamento externo */
+    padding:0; /* Espaçamento interno */
+    box-sizing: border-box; /* padding e border não aumentam o tamanho do elemento */
+}
+
+body {
+    font-family: var(--font-main); /* Tipo da fonte do Projeto */
+    background-color: var(--color-bg);
+    background-color: #ffffff;
+    color: var(--color-text);
+
+    /* HEADER */
+}
+
+.header {
+    width: 100%;
+    background-color: var(--color-bg);
+    border-bottom: 1px solid var(--color-border); /*borda inferior*/
+    position: sticky; /* header "gruda" no topo ao rolar a página*/    
+    top: 0;
+    z-index: 100; /* garante que fique acima de outros elementos */
+}
+
 .header-container {
-    color: brown;
+    max-width: 1200px; /* largura máxima do conteúdo */
+    margin: 0 auto; 
+    padding: 16px 24px;
+    display: flex; /* Organizar os elementos lado a lado */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: space-between; /* Logo, menu e botões ficam nas pontas */
+    gap: 24px; /* Espaçamento entre os elementos */
+}
+
+/* LOGO */ 
+
+.Logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none; /* Remove sublinhado do texto */
+}
+
+.Logo img {
+    font-size: 16px;
+    font-weight: 700; /* negrito */
+    color: var(--color-text);
+}
+
+.Logo-subtitle {
+    font-size: 12px;
+    color: var(--color-text-light);
 }
