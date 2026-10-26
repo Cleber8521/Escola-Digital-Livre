@@ -1,3 +1,4 @@
+
 /* Variaveis Globais (cores e fontes reutilizadas no CSS) */
 :root {
     --color-primary: #1a1eff; /* cor principal */
@@ -44,16 +45,28 @@ body {
 
 /* LOGO */
 
-.Logo {
+
+/* LOGO */
+
+.logo {
     display: flex;
     align-items: center;
     gap: 8px;
     text-decoration: none; /* Remove sublinhado do texto */
+    flex-shrink: 0;
 }
 
-.Logo img {
-    width: auto;
+.logo img {
+    width: 60px;
     height: auto;
+    display: block;
+    flex-shrink: 0;
+}
+
+.logo-tittle {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-text);
 }
 
 .Logo-subtitle {
@@ -65,6 +78,7 @@ body {
     display: flex;
     flex-direction: column;
 }
+
 
 /* NAVEGAÇÃO */
 
@@ -176,9 +190,14 @@ body {
         left: 0;
         right: 0;
         background-color: var(--color-bg);
-        border-bottom: 1px solid var(--color-bg);
+        border-bottom: 1px solid var(--color-border);
         padding: 16px 24px;
         gap: 16px;
+    }
+
+    /* Classe adicionada pelo JavaScript para abrir o menu */
+    .main-nav.active {
+        display: flex;
     }
 
     .btn-primary {
@@ -189,7 +208,3 @@ body {
         display: flex;
     }
 }
-
-
-
-
