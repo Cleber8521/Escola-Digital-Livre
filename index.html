@@ -83,8 +83,399 @@
         </div>
     </header>
 
-    <h1>Desenvolvimento Web</h1>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>
 
+<!-- =====================================================
+         CONTINUAÇÃO DO PROJETO
+         -----------------------------------------------------
+         SOBRE OS ÍCONES: usamos o Material Symbols, uma
+         coleção GRATUITA de ícones do Google Fonts.
+         Como funciona:
+           1. No <head>, carregamos a fonte de ícones (link NOVO).
+           2. Onde queremos um ícone, escrevemos:
+              <span class="material-symbols-outlined">home</span>
+              O NOME do ícone (ex: "home") vira o desenho!
+           3. Como o ícone é uma FONTE, ele muda com
+              "font-size" (tamanho) e "color" (cor) no CSS.
+         Para achar outros ícones: fonts.google.com/icons
+         (pesquise em inglês e copie o nome do ícone).
+         aria-hidden="true": leitores de tela ignoram o ícone,
+         pois ele é só decoração.
+         ===================================================== -->
+
+    <main>
+        <!-- Tag semântica: o conteúdo PRINCIPAL da página (só existe um por página) -->
+
+        <!-- ---------------- SEÇÃO HERO ----------------
+             "Hero" é a primeira seção grande do site,
+             a que o visitante vê assim que a página abre. -->
+        <section class="hero">
+            <!-- section: agrupa um bloco de conteúdo sobre o mesmo assunto -->
+
+            <div class="container hero-container">
+                <!-- "container" centraliza o conteúdo (mesma ideia do header-container) -->
+
+                <!-- Lado esquerdo: textos e botões -->
+                <div class="hero-content">
+
+                    <h1 class="hero-title">
+                        <!-- h1: o título mais importante da página (use só UM h1) -->
+                        Aprenda tecnologia
+                        <span class="text-highlight">de forma simples e gratuita</span>
+                        <!-- span usado só para pintar parte do título com a cor principal -->
+                    </h1>
+
+                    <p class="hero-text">
+                        A Escola Digital Livre é uma plataforma gratuita para você aprender
+                        programação e informática no seu ritmo, com conteúdo fácil e direto ao ponto.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <!-- Links com aparência de botão -->
+                        <a href="./cursos.html" class="btn-hero">
+                            Ver cursos
+                            <!-- Ícone: seta para a direita -->
+                            <span class="material-symbols-outlined icon-sm" aria-hidden="true">arrow_forward</span>
+                        </a>
+
+                        <a href="#por-que" class="btn-hero-outline">Como funciona</a>
+                        <!-- href="#por-que" rola a página até o elemento com id="por-que" -->
+                    </div>
+
+                    <!-- Lista de vantagens -->
+                    <ul class="hero-features">
+                        <!-- ul: lista sem números | li: cada item -->
+
+                        <li class="hero-feature">
+                            <span class="feature-icon">
+                                <!-- Ícone: livro aberto -->
+                                <span class="material-symbols-outlined" aria-hidden="true">menu_book</span>
+                            </span>
+                            <div>
+                                <strong>Gratuito</strong>
+                                <small>100% gratuito</small>
+                            </div>
+                        </li>
+
+                        <li class="hero-feature">
+                            <span class="feature-icon feature-icon-green">
+                                <!-- Ícone: gráfico de barras subindo -->
+                                <span class="material-symbols-outlined" aria-hidden="true">signal_cellular_alt</span>
+                            </span>
+                            <div>
+                                <strong>Para iniciantes</strong>
+                                <small>Conteúdo simples</small>
+                            </div>
+                        </li>
+
+                        <li class="hero-feature">
+                            <span class="feature-icon">
+                                <!-- Ícone: escudo com "check" -->
+                                <span class="material-symbols-outlined" aria-hidden="true">verified_user</span>
+                            </span>
+                            <div>
+                                <strong>Aprenda no seu ritmo</strong>
+                                <small>Estude quando quiser</small>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Lado direito: imagem ilustrativa -->
+                <div class="hero-image">
+                    <img src="./assets/banner-ilustracao.svg" alt="Ilustração de um notebook com código, livros e uma planta">
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ---------------- CURSOS EM DESTAQUE ---------------- -->
+        <section class="courses">
+            <div class="container">
+
+                <!-- Título à esquerda e link à direita -->
+                <div class="section-header">
+                    <h2 class="section-title">Cursos em destaque</h2>
+                    <!-- h2: título de cada seção -->
+
+                    <a href="./cursos.html" class="link-arrow">
+                        Ver todos os cursos
+                        <span class="material-symbols-outlined icon-sm" aria-hidden="true">arrow_forward</span>
+                    </a>
+                </div>
+
+                <!-- Carrossel: lista de cards + botão de seta -->
+                <div class="carousel">
+
+                    <div class="course-list" id="course-list">
+
+                        <!-- CARD 1 -->
+                        <article class="course-card">
+                            <!-- article: conteúdo que faz sentido sozinho, como um card -->
+
+                            <div class="course-icon icon-blue">
+                                <!-- Ícone: código </> -->
+                                <span class="material-symbols-outlined" aria-hidden="true">code</span>
+                            </div>
+
+                            <h3 class="course-title">Lógica de Programação</h3>
+                            <p class="course-text">Aprenda os fundamentos da lógica para desenvolver qualquer programa.</p>
+
+                            <div class="course-info">
+                                <span class="course-level">
+                                    <span class="material-symbols-outlined icon-xs" aria-hidden="true">signal_cellular_alt</span>
+                                    Iniciante
+                                </span>
+                                <span class="course-lessons">
+                                    <!-- Ícone: botão de play (aulas em vídeo) -->
+                                    <span class="material-symbols-outlined icon-xs" aria-hidden="true">play_circle</span>
+                                    12 aulas
+                                </span>
+                            </div>
+                        </article>
+
+                        <!-- CARD 2 -->
+                        <article class="course-card">
+                            <div class="course-icon icon-orange">
+                                <!-- Ícone: página web -->
+                                <span class="material-symbols-outlined" aria-hidden="true">web</span>
+                            </div>
+
+                            <h3 class="course-title">HTML e CSS</h3>
+                            <p class="course-text">Crie páginas web modernas aprendendo HTML e CSS desde o zero.</p>
+
+                            <div class="course-info">
+                                <span class="course-level">
+                                    <span class="material-symbols-outlined icon-xs" aria-hidden="true">signal_cellular_alt</span>
+                                    Iniciante
+                                </span>
+                                <span class="course-lessons">
+                                    <span class="material-symbols-outlined icon-xs" aria-hidden="true">play_circle</span>
+                                    14 aulas
+                                </span>
+                            </div>
+                        </article>
+
+                        <!-- CARD 3 -->
+                        <article class="course-card">
+                            <div class="course-icon icon-yellow">
+                                <!-- Ícone: chaves { } (muito usadas no JavaScript) -->
+                                <span class="material-symbols-outlined" aria-hidden="true">data_object</span>
+                            </div>
+
+                            <h3 class="course-title">JavaScript Básico</h3>
+                            <p class="course-text">Introdução ao JavaScript para tornar suas páginas web interativas.</p>
+
+                            <div class="course-info">
+                                <span class="course-level">
+                                    <span class="material-symbols-outlined icon-xs" aria-hidden="true">signal_cellular_alt</span>
+                                    Iniciante
+                                </span>
+                                <span class="course-lessons">
+                                    <span class="material-symbols-outlined icon-xs" aria-hidden="true">play_circle</span>
+                                    16 aulas
+                                </span>
+                            </div>
+                        </article>
+
+                        <!-- CARD 4 -->
+                        <article class="course-card">
+                            <div class="course-icon icon-green">
+                                <!-- Ícone: monitor -->
+                                <span class="material-symbols-outlined" aria-hidden="true">computer</span>
+                            </div>
+
+                            <h3 class="course-title">Informática Básica</h3>
+                            <p class="course-text">Aprenda o essencial sobre computadores, internet e produtividade.</p>
+
+                            <div class="course-info">
+                                <span class="course-level">
+                                    <span class="material-symbols-outlined icon-xs" aria-hidden="true">signal_cellular_alt</span>
+                                    Iniciante
+                                </span>
+                                <span class="course-lessons">
+                                    <span class="material-symbols-outlined icon-xs" aria-hidden="true">play_circle</span>
+                                    10 aulas
+                                </span>
+                            </div>
+                        </article>
+
+                        <!-- CARD 5 (extra, para o carrossel ter o que rolar) -->
+                        <article class="course-card">
+                            <div class="course-icon icon-purple">
+                                <!-- Ícone: banco de dados (cilindro) -->
+                                <span class="material-symbols-outlined" aria-hidden="true">database</span>
+                            </div>
+
+                            <h3 class="course-title">Banco de Dados</h3>
+                            <p class="course-text">Entenda como guardar e consultar informações usando SQL.</p>
+
+                            <div class="course-info">
+                                <span class="course-level">
+                                    <span class="material-symbols-outlined icon-xs" aria-hidden="true">signal_cellular_alt</span>
+                                    Iniciante
+                                </span>
+                                <span class="course-lessons">
+                                    <span class="material-symbols-outlined icon-xs" aria-hidden="true">play_circle</span>
+                                    11 aulas
+                                </span>
+                            </div>
+                        </article>
+
+                        <!-- CARD 6 -->
+                        <article class="course-card">
+                            <div class="course-icon icon-orange">
+                                <!-- Ícone: rede de computadores -->
+                                <span class="material-symbols-outlined" aria-hidden="true">lan</span>
+                            </div>
+
+                            <h3 class="course-title">Redes de Computadores</h3>
+                            <p class="course-text">Descubra como os computadores se conectam e conversam entre si.</p>
+
+                            <div class="course-info">
+                                <span class="course-level">
+                                    <span class="material-symbols-outlined icon-xs" aria-hidden="true">signal_cellular_alt</span>
+                                    Iniciante
+                                </span>
+                                <span class="course-lessons">
+                                    <span class="material-symbols-outlined icon-xs" aria-hidden="true">play_circle</span>
+                                    9 aulas
+                                </span>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Botão de seta para VOLTAR (esquerda) -->
+                    <button class="carousel-btn carousel-prev" id="btn-prev" aria-label="Cursos anteriores">
+                        <span class="material-symbols-outlined" aria-hidden="true">chevron_left</span>
+                    </button>
+
+                    <!-- Botão de seta usado pelo JavaScript para rolar os cards -->
+                    <button class="carousel-btn carousel-next" id="btn-next" aria-label="Próximos cursos">
+                        <span class="material-symbols-outlined" aria-hidden="true">chevron_right</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ---------------- POR QUE ESTUDAR AQUI ---------------- -->
+        <section class="why" id="por-que">
+            <div class="container">
+                <h2 class="section-title">Por que estudar aqui?</h2>
+
+                <div class="why-grid">
+
+                    <div class="why-item">
+                        <!-- Ícone: pessoas -->
+                        <span class="material-symbols-outlined why-icon" aria-hidden="true">group</span>
+                        <div>
+                            <h3>Para todos</h3>
+                            <p>Conteúdo feito para iniciantes, de forma clara e acessível.</p>
+                        </div>
+                    </div>
+
+                    <div class="why-item">
+                        <!-- Ícone: presente -->
+                        <span class="material-symbols-outlined why-icon why-icon-green" aria-hidden="true">redeem</span>
+                        <div>
+                            <h3>Totalmente gratuito</h3>
+                            <p>Todos os cursos são 100% gratuitos.</p>
+                        </div>
+                    </div>
+
+                    <div class="why-item">
+                        <!-- Ícone: alvo -->
+                        <span class="material-symbols-outlined why-icon" aria-hidden="true">track_changes</span>
+                        <div>
+                            <h3>Foco no aprendizado</h3>
+                            <p>Aulas práticas e objetivas para você aprender de verdade.</p>
+                        </div>
+                    </div>
+
+                    <div class="why-item">
+                        <!-- Ícone: caminho entre dois pontos -->
+                        <span class="material-symbols-outlined why-icon why-icon-green" aria-hidden="true">route</span>
+                        <div>
+                            <h3>Seu ritmo</h3>
+                            <p>Estude quando e onde quiser, sem pressão.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- ---------------- FOOTER (rodapé) ---------------- -->
+    <footer class="footer">
+        <div class="container footer-container">
+
+            <!-- Coluna 1: logo -->
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <img src="./assets/logo.png" alt="Logo Escola Digital Livre">
+                    <span class="logo-text">
+                        <span class="logo-title">Escola Digital Livre</span>
+                        <span class="logo-subtitle">Tecnologia para todos</span>
+                    </span>
+                </a>
+            </div>
+
+            <!-- Coluna 2: navegação -->
+            <div class="footer-column">
+                <h4>Navegação</h4>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="./cursos.html">Cursos</a></li>
+                    <li><a href="#">Sobre</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+            </div>
+
+            <!-- Coluna 3: links úteis -->
+            <div class="footer-column">
+                <h4>Links úteis</h4>
+                <ul>
+                    <li><a href="#por-que">Como funciona</a></li>
+                    <li><a href="#">Perguntas frequentes</a></li>
+                    <li><a href="#">Política de privacidade</a></li>
+                    <li><a href="#">Termos de uso</a></li>
+                </ul>
+            </div>
+
+            <!-- Coluna 4: redes sociais
+                 Ícones do Font Awesome. Funciona igual ao Material Symbols,
+                 mas aqui o ícone é escolhido pela CLASSE:
+                   fa-brands  = coleção de marcas
+                   fa-github  = qual ícone mostrar -->
+            <div class="footer-column">
+                <h4>Redes sociais</h4>
+                <div class="social-links">
+                    <!-- target="_blank" abre o link em uma NOVA aba
+                         aria-label descreve o link para leitores de tela -->
+                    <a href="https://github.com" target="_blank" aria-label="GitHub">
+                        <i class="fa-brands fa-github" aria-hidden="true"></i>
+                        <!-- <i> é a tag que o Font Awesome usa para ícones -->
+                    </a>
+                    <a href="https://youtube.com" target="_blank" aria-label="YouTube">
+                        <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://discord.com" target="_blank" aria-label="Discord">
+                        <i class="fa-brands fa-discord" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <p class="footer-copy">
+            &copy; <span id="ano"></span> Escola Digital Livre. Todos os direitos reservados.
+            <!-- &copy; vira o símbolo © | o ano é preenchido pelo JavaScript -->
+        </p>
+    </footer>
 
     <script src="js/script.js"></script>
 </body>

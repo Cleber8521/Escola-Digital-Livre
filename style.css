@@ -208,3 +208,565 @@ body {
         display: flex;
     }
 }
+
+
+/* =========================================================
+   =========================================================
+   CONTINUAÇÃO DO PROJETO
+   Tudo daqui para baixo é novo. O código acima não mudou.
+   =========================================================
+   ========================================================= */
+
+
+/* Novas variáveis
+   Podemos ter mais de um :root. As variáveis abaixo se
+   SOMAM às que já existiam lá no começo do arquivo. */
+:root {
+    --color-primary-light: #EEF0FF;  /* versão bem clarinha da cor principal (fundos) */
+    --color-success: #16A34A;        /* verde */
+    --color-bg-soft: #F7F8FC;        /* fundo cinza-azulado das seções */
+    --color-footer: #14213D;         /* azul-marinho do rodapé */
+    --radius: 12px;                  /* arredondamento padrão */
+}
+
+body {
+    color: var(--color-text);
+    line-height: 1.5; /* altura da linha: 1.5x a fonte (melhora a leitura) */
+}
+
+/* Rolagem suave ao clicar em links internos (#por-que) */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Remove as bolinhas padrão das listas */
+ul {
+    list-style: none;
+}
+
+/* Classe reutilizável: centraliza o conteúdo (igual ao header-container) */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.section-title {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   ÍCONES (Material Symbols)
+   O ícone é uma FONTE: por isso usamos font-size para o
+   tamanho e color para a cor, igual a um texto comum.
+   ========================================================= */
+.material-symbols-outlined {
+    font-size: 24px;     /* tamanho padrão dos ícones */
+    line-height: 1;      /* evita espaço extra acima/abaixo do ícone */
+    flex-shrink: 0;      /* o ícone nunca é "espremido" */
+
+    /* font-variation-settings ajusta o estilo do ícone:
+       'FILL' 0 = só contorno (1 = preenchido)
+       'wght' 400 = espessura da linha (de 100 a 700)
+       'GRAD' 0 = ajuste fino da espessura
+       'opsz' 24 = tamanho óptico (desenho otimizado para 24px) */
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* Lupa do campo de pesquisa.
+   O CSS original (.search-icon) já posiciona o ícone dentro do input;
+   aqui só ajustamos o tamanho e a cor do novo ícone. */
+.material-symbols-outlined.search-icon {
+    font-size: 20px;
+    width: auto;
+    color: var(--color-text-light);
+}
+
+/* Tamanhos menores (usamos junto: class="material-symbols-outlined icon-sm")
+
+   ATENÇÃO: o CSS do Google é carregado DEPOIS do style.css e
+   também define font-size: 24px. Quando duas regras têm o mesmo
+   "peso", a que vem por último vence. Por isso escrevemos as DUAS
+   classes juntas (sem espaço): isso deixa a nossa regra mais
+   "forte" (maior especificidade) e ela vence a do Google. */
+.material-symbols-outlined.icon-sm { font-size: 20px; }
+.material-symbols-outlined.icon-xs { font-size: 18px; }
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+.hero {
+    /* linear-gradient: degradê de uma cor para outra (de cima para baixo) */
+    background: linear-gradient(180deg, var(--color-bg-soft) 0%, #FFF 100%);
+    padding: 64px 0;
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px;
+}
+
+/* flex: cada lado ocupa uma fração do espaço (texto um pouco maior) */
+.hero-content { flex: 1.2; }
+.hero-image   { flex: 1; }
+
+.hero-image img {
+    max-width: 100%; /* a imagem nunca passa do espaço disponível */
+}
+
+.hero-title {
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 16px;
+}
+
+.text-highlight {
+    display: block; /* faz o span ir para a linha de baixo */
+    color: var(--color-primary);
+}
+
+.hero-text {
+    font-size: 17px;
+    color: #374151;
+    margin-bottom: 32px;
+    max-width: 520px; /* linhas muito longas cansam a leitura */
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap; /* se não couber, os botões descem de linha */
+    margin-bottom: 40px;
+}
+
+/* Botões do hero.
+   Usamos classes NOVAS (e não .btn-primary) porque, no celular,
+   o CSS lá de cima esconde todo .btn-primary. */
+.btn-hero,
+.btn-hero-outline {
+    display: inline-flex;  /* deixa o texto e o ícone lado a lado */
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: 2px solid var(--color-primary);
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.btn-hero {
+    background-color: var(--color-primary);
+    color: #FFF;
+}
+
+.btn-hero:hover {
+    background-color: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
+}
+
+/* Faz a seta "andar" um pouquinho ao passar o mouse */
+.btn-hero .material-symbols-outlined {
+    transition: transform 0.2s ease;
+}
+
+.btn-hero:hover .material-symbols-outlined {
+    transform: translateX(4px); /* move 4px para a direita */
+}
+
+.btn-hero-outline {
+    background-color: transparent;
+    color: var(--color-primary);
+}
+
+.btn-hero-outline:hover {
+    background-color: var(--color-primary-light);
+}
+
+/* Lista de vantagens */
+.hero-features {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.hero-feature {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.hero-feature strong {
+    display: block; /* strong e small, um embaixo do outro */
+    font-size: 14px;
+}
+
+.hero-feature small {
+    font-size: 13px;
+    color: var(--color-text-light);
+}
+
+/* Círculo colorido com o ícone dentro */
+.feature-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;               /* 50% = círculo */
+    background-color: var(--color-primary);
+    color: #FFF;                      /* ícone branco: a cor do ícone vem do "color" */
+    display: flex;
+    align-items: center;              /* centraliza na vertical */
+    justify-content: center;          /* centraliza na horizontal */
+    flex-shrink: 0;
+}
+
+.feature-icon .material-symbols-outlined {
+    font-size: 22px;
+}
+
+.feature-icon-green {
+    background-color: var(--color-success);
+}
+
+
+/* =========================================================
+   CURSOS EM DESTAQUE
+   ========================================================= */
+.courses {
+    padding: 56px 0;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.link-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--color-primary);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.link-arrow:hover {
+    text-decoration: underline;
+}
+
+/* Referência para posicionar o botão de seta */
+.carousel {
+    position: relative;
+}
+
+/* Lista que rola para o lado */
+.course-list {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;               /* permite rolar na horizontal */
+    scroll-snap-type: x mandatory;  /* os cards "encaixam" ao rolar */
+    padding: 6px 4px 16px;          /* espaço para a sombra não ser cortada */
+    scrollbar-width: none;          /* esconde a barra de rolagem (Firefox) */
+}
+
+.course-list::-webkit-scrollbar {
+    display: none;                  /* esconde a barra (Chrome, Edge, Safari) */
+}
+
+.course-card {
+    flex: 0 0 270px;                /* largura fixa de 270px */
+    scroll-snap-align: start;
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;         /* conteúdo empilhado */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Card "sobe" e ganha sombra ao passar o mouse */
+.course-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+/* Quadrado colorido com o ícone do curso */
+.course-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFF;                    /* ícone branco */
+    margin-bottom: 16px;
+}
+
+.course-icon .material-symbols-outlined {
+    font-size: 28px;
+}
+
+/* Uma cor para cada curso */
+.icon-blue   { background-color: #2563EB; }
+.icon-orange { background-color: #E44D26; }
+.icon-yellow { background-color: #F7DF1E; color: #1E1B2E; } /* ícone escuro no amarelo */
+.icon-green  { background-color: var(--color-success); }
+.icon-purple { background-color: var(--color-primary); }
+
+.course-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.course-text {
+    font-size: 14px;
+    color: #4B5563;
+    margin-bottom: 20px;
+    flex-grow: 1; /* ocupa o espaço que sobra: empurra o rodapé do card para baixo */
+}
+
+/* Rodapé do card: nível à esquerda, aulas à direita */
+.course-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: var(--color-text-light);
+}
+
+.course-level,
+.course-lessons {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.course-level {
+    color: var(--color-success);
+    font-weight: 500;
+}
+
+/* Botão redondo de seta */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);    /* truque para centralizar na vertical */
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.carousel-btn:hover {
+    color: var(--color-primary);
+}
+
+/* Um botão em cada lado do carrossel */
+.carousel-prev { left: -20px; }
+.carousel-next { right: -20px; }
+
+
+/* =========================================================
+   POR QUE ESTUDAR AQUI
+   ========================================================= */
+.why {
+    background-color: var(--color-bg-soft);
+    padding: 56px 0;
+}
+
+.why .section-title {
+    margin-bottom: 32px;
+}
+
+/* GRID: organiza em linhas e colunas.
+   repeat(4, 1fr) = 4 colunas iguais ("fr" = fração do espaço) */
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.why-item {
+    display: flex;
+    gap: 16px;
+    padding: 8px 24px;
+    border-left: 1px solid var(--color-border); /* linha divisória */
+}
+
+/* :first-child = só o PRIMEIRO item (não precisa da linha) */
+.why-item:first-child {
+    border-left: none;
+    padding-left: 0;
+}
+
+/* Ícones maiores e mais finos nesta seção */
+.material-symbols-outlined.why-icon {   /* duas classes juntas = regra mais forte */
+    font-size: 40px;
+    color: var(--color-primary);
+    /* linha um pouco mais fina nos ícones grandes */
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 40;
+}
+
+.material-symbols-outlined.why-icon-green {
+    color: var(--color-success);
+}
+
+.why-item h3 {
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+.why-item p {
+    font-size: 14px;
+    color: #4B5563;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.footer {
+    background-color: var(--color-footer);
+    color: #FFF;
+    padding-top: 48px;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr; /* 1ª coluna 2x maior */
+    gap: 32px;
+    padding-bottom: 40px;
+}
+
+/* No fundo escuro, os textos do logo ficam claros */
+.footer .logo-title    { color: #FFF; }
+.footer .logo-subtitle { color: #CBD5E1; }
+
+.footer-column h4 {
+    font-size: 15px;
+    margin-bottom: 16px;
+}
+
+.footer-column li {
+    margin-bottom: 8px;
+}
+
+.footer-column a {
+    color: #CBD5E1;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-column a:hover {
+    color: #FFF;
+}
+
+.social-links {
+    display: flex;
+    gap: 12px;
+}
+
+/* Cada rede social dentro de um círculo */
+.social-links a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.08); /* branco bem transparente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+}
+
+.social-links a:hover {
+    background-color: var(--color-primary);
+}
+
+/* Ícones do Font Awesome também são FONTE: tamanho com font-size, cor com color */
+.social-links i {
+    font-size: 18px;
+    color: #FFF;
+}
+
+.footer-copy {
+    text-align: center;
+    font-size: 13px;
+    color: #CBD5E1;
+    padding: 20px 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE DAS NOVAS SEÇÕES
+   ========================================================= */
+
+/* Tablets (até 992px) */
+@media (max-width: 992px) {
+    .why-grid {
+        grid-template-columns: repeat(2, 1fr); /* 4 colunas viram 2 */
+        row-gap: 32px;
+    }
+
+    .why-item:nth-child(3) {  /* 3º item começa nova linha: sem divisória */
+        border-left: none;
+        padding-left: 0;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Celulares (até 768px) */
+@media (max-width: 768px) {
+    .hero {
+        padding: 40px 0;
+    }
+
+    .hero-container {
+        flex-direction: column-reverse; /* imagem em cima, texto embaixo */
+        gap: 24px;
+    }
+
+    .hero-title {
+        font-size: 30px;
+    }
+
+    .carousel-btn {
+        display: none; /* no celular, arrasta-se com o dedo */
+    }
+
+    .course-card {
+        flex-basis: 240px;
+    }
+
+    .why-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .why-item {
+        border-left: none;
+        padding: 0;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+}
