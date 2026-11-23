@@ -14,12 +14,12 @@
 
 
 // 1) ENDEREÇO do nosso projeto no Supabase (Project URL)
-const SUPABASE_URL = "https://omvfysjgdyoowkmbuwfo.supabase.co";
+const SUPABASE_URL = "SUPABASE_URL=https://uejumdmrohpgawmibntq.supabase.co";
 
 // 2) CHAVE PÚBLICA do projeto (Publishable key)
 //    Ela PODE ficar no código do site: foi feita para isso.
 //    NUNCA coloque aqui a "secret key" nem a senha do banco!
-const SUPABASE_KEY = "sb_publishable_RXTRde_h0FrPhUk1cnIFEw_mRQZOc6D";
+const SUPABASE_KEY = "SUPABASE_PUBLISHABLE_KEY=sb_publishable_ryL1cxfS1XB_iDJODH9M5A_fbpg9tt_";
 
 
 // 3) CRIANDO A CONEXÃO
