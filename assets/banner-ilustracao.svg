@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 400" role="img" aria-label="Notebook com código, planta e livros">
+  <!-- Ilustração do banner: notebook com código, planta e pilha de livros -->
+
+  <!-- Elementos decorativos ao fundo (cartões e engrenagens) -->
+  <g opacity="0.55">
+    <rect x="60" y="40" width="110" height="46" rx="8" fill="#dbe6fb"/>
+    <rect x="76" y="54" width="60" height="6" rx="3" fill="#b9cdf5"/>
+    <rect x="76" y="68" width="40" height="6" rx="3" fill="#b9cdf5"/>
+    <rect x="420" y="60" width="100" height="56" rx="8" fill="#dbe6fb"/>
+    <rect x="436" y="76" width="56" height="6" rx="3" fill="#b9cdf5"/>
+    <rect x="436" y="90" width="38" height="6" rx="3" fill="#b9cdf5"/>
+    <circle cx="250" cy="50" r="18" fill="none" stroke="#c7d7f7" stroke-width="8" stroke-dasharray="7 5"/>
+    <circle cx="70" cy="190" r="16" fill="none" stroke="#c7d7f7" stroke-width="7" stroke-dasharray="6 5"/>
+    <circle cx="510" cy="170" r="12" fill="none" stroke="#c7d7f7" stroke-width="6" stroke-dasharray="5 4"/>
+  </g>
+
+  <!-- Sombra no chão -->
+  <ellipse cx="300" cy="352" rx="240" ry="14" fill="#e1e9f8"/>
+
+  <!-- Notebook: tela -->
+  <rect x="170" y="110" width="250" height="170" rx="12" fill="#1f2937"/>
+  <rect x="182" y="122" width="226" height="146" rx="6" fill="#16213a"/>
+  <!-- Símbolo de código </> -->
+  <g fill="none" stroke="#e5edff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M232 176 l-18 18 18 18"/>
+    <path d="M278 168 l-16 52"/>
+    <path d="M308 176 l18 18 -18 18"/>
+  </g>
+  <!-- Linhas de código -->
+  <rect x="345" y="160" width="46" height="5" rx="2.5" fill="#3b82f6" opacity="0.8"/>
+  <rect x="345" y="174" width="34" height="5" rx="2.5" fill="#64748b"/>
+  <rect x="345" y="188" width="40" height="5" rx="2.5" fill="#22c55e" opacity="0.8"/>
+  <rect x="345" y="202" width="28" height="5" rx="2.5" fill="#64748b"/>
+  <rect x="345" y="216" width="44" height="5" rx="2.5" fill="#3b82f6" opacity="0.8"/>
+  <rect x="210" y="240" width="90" height="5" rx="2.5" fill="#64748b"/>
+  <rect x="210" y="252" width="60" height="5" rx="2.5" fill="#64748b"/>
+
+  <!-- Notebook: base/teclado -->
+  <path d="M140 280 h310 l22 30 a6 6 0 0 1 -5 9 h-344 a6 6 0 0 1 -5 -9 z" fill="#9ca3af"/>
+  <rect x="265" y="284" width="60" height="6" rx="3" fill="#6b7280"/>
+  <rect x="123" y="318" width="344" height="8" rx="4" fill="#6b7280"/>
+
+  <!-- Planta: folhas -->
+  <g fill="#22c55e">
+    <path d="M110 250 C90 210 92 180 108 150 C120 185 122 220 110 250 z"/>
+    <path d="M112 252 C140 220 160 210 178 205 C165 230 145 248 112 252 z" fill="#16a34a"/>
+    <path d="M108 252 C80 230 66 215 58 196 C82 200 100 220 108 252 z" fill="#16a34a"/>
+    <path d="M112 250 C122 215 140 190 160 178 C156 210 140 235 112 250 z"/>
+  </g>
+  <!-- Planta: vaso -->
+  <path d="M82 255 h58 l-7 60 a8 8 0 0 1 -8 7 h-28 a8 8 0 0 1 -8 -7 z" fill="#1e3a8a"/>
+  <rect x="78" y="250" width="66" height="12" rx="4" fill="#1d4ed8"/>
+
+  <!-- Pilha de livros -->
+  <rect x="405" y="300" width="130" height="28" rx="5" fill="#16a34a"/>
+  <rect x="405" y="300" width="14" height="28" rx="3" fill="#15803d"/>
+  <rect x="525" y="304" width="6" height="20" rx="2" fill="#ffffff" opacity="0.85"/>
+
+  <rect x="415" y="272" width="120" height="28" rx="5" fill="#1d4ed8"/>
+  <rect x="415" y="272" width="14" height="28" rx="3" fill="#1e40af"/>
+  <rect x="525" y="276" width="6" height="20" rx="2" fill="#ffffff" opacity="0.85"/>
+
+  <rect x="425" y="244" width="105" height="28" rx="5" fill="#2563eb"/>
+  <rect x="425" y="244" width="14" height="28" rx="3" fill="#1d4ed8"/>
+  <rect x="520" y="248" width="6" height="20" rx="2" fill="#ffffff" opacity="0.85"/>
+</svg>

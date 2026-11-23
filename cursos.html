@@ -1,11 +1,439 @@
 <!DOCTYPE html>
+<!-- Declara que este documento usa HTML5 -->
+
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cursos</title>
+    <title>Cursos | Escola Digital Livre</title>
+    <!-- Cada página tem um título diferente na aba do navegador -->
+
+    <link rel="stylesheet" href="style.css">
+    <!-- Conecta o arquivo de estilos (CSS). Todas as páginas usam o MESMO style.css -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <!-- Importando fonte do Google Fonts -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block" rel="stylesheet">
+    <!-- Ícones Material Symbols (Google Fonts) -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Font Awesome: ícones das redes sociais no rodapé -->
 </head>
 <body>
-    <h1>Página de cursos</h1>
+
+    <header class="header">
+        <!-- Cabeçalho igual ao da página inicial.
+             Ele se repete em todas as páginas para o menu ficar sempre no mesmo lugar. -->
+        <div class="header-container">
+
+            <a href="index.html" class="logo">
+                <!-- Logo clicável, leva para a página inicial -->
+                <img src="./assets/logo.png" alt="Logo Escola Digital Livre">
+                <span class="logo-text">
+                    <span class="logo-title">Escola Digital Livre</span>
+                    <span class="logo-subtitle">Tecnologia para todos</span>
+                </span>
+            </a>
+
+            <nav class="main-nav">
+                <!-- A classe "active" fica no link da página em que estamos -->
+                <a href="index.html" class="nav-link">Inicio</a>
+                <a href="cursos.html" class="nav-link active">Cursos</a>
+                <a href="sobre.html" class="nav-link">Sobre</a>
+                <a href="contato.html" class="nav-link">Contato</a>
+
+                <!-- Link que só aparece no menu do CELULAR
+                     (no celular, o botão "Começar agora" fica escondido) -->
+                <a href="entrar.html" class="nav-link nav-link-mobile">Entrar / Cadastrar</a>
+            </nav>
+
+            <div class="header-actions">
+                <div class="search-box">
+                    <input type="text" placeholder="Buscar cursos...">
+                    <span class="material-symbols-outlined search-icon" aria-hidden="true">search</span>
+                </div>
+
+                <!-- PASSO 6: saudação ao aluno logado. Começa escondida (hidden);
+                     o JavaScript escreve "Olá, Nome!" e mostra quando há alguém logado -->
+                <span class="user-greeting" id="saudacao" hidden></span>
+
+                <a href="entrar.html" class="btn-primary">Começar agora</a>
+                <!-- Agora é um link <a> com aparência de botão: ao clicar, abre a página de login -->
+            </div>
+
+            <!-- Botão do menu hamburguer (funciona apenas para mobile) -->
+            <button class="hamburguer" id="btn-menu">☰</button>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ---------------- TOPO DA PÁGINA ----------------
+             "page-hero" é uma versão menor do hero da página inicial.
+             Vamos usar essa mesma classe em Cursos, Sobre e Contato. -->
+        <section class="page-hero">
+            <div class="container">
+                <span class="page-tag">Cursos</span>
+                <h1 class="page-title">Todos os cursos</h1>
+                <p class="page-text">
+                    Escolha um curso e comece agora mesmo. Todos são gratuitos,
+                    feitos para iniciantes e você estuda no seu ritmo.
+                </p>
+            </div>
+        </section>
+
+
+        <!-- ---------------- LISTA DE CURSOS ---------------- -->
+        <section class="courses">
+            <div class="container">
+
+                <!-- BOTÕES DE FILTRO
+                     data-categoria é um atributo que NÓS inventamos.
+                     Todo atributo que começa com "data-" serve para guardar
+                     uma informação extra, que o JavaScript consegue ler.
+                     Aqui ele diz qual categoria o botão deve mostrar. -->
+                <div class="filters">
+                    <button class="filter-btn active" data-categoria="todos">Todos</button>
+                    <button class="filter-btn" data-categoria="programacao">Programação</button>
+                    <button class="filter-btn" data-categoria="web">Desenvolvimento Web</button>
+                    <button class="filter-btn" data-categoria="informatica">Informática</button>
+                    <button class="filter-btn" data-categoria="dados">Dados</button>
+                </div>
+
+                <!-- GRADE DE CURSOS
+                     Reaproveitamos a classe "course-card" do carrossel da página inicial!
+                     Cada card também tem um data-categoria, que precisa ser IGUAL
+                     ao data-categoria de um dos botões de filtro. -->
+                <div class="course-grid">
+
+                    <!-- CARD 1 -->
+                    <article class="course-card" data-categoria="programacao">
+                        <div class="course-icon icon-blue">
+                            <span class="material-symbols-outlined" aria-hidden="true">code</span>
+                        </div>
+
+                        <span class="course-tag">Programação</span>
+                        <h3 class="course-title">Lógica de Programação</h3>
+                        <p class="course-text">Aprenda os fundamentos da lógica para desenvolver qualquer programa.</p>
+
+                        <div class="course-info">
+                            <span class="course-level">
+                                <span class="material-symbols-outlined icon-xs" aria-hidden="true">signal_cellular_alt</span>
+                                Iniciante
+                            </span>
+                            <span class="course-lessons">
+                                <span class="material-symbols-outlined icon-xs" aria-hidden="true">play_circle</span>
+                                12 aulas
+                            </span>
+                        </div>
+
+                        <!-- PASSO 5: o link abre a página do curso.
+                             Tudo depois do "?" é um PARÂMETRO: uma informação que vai junto no endereço.
+                             curso=logica-programacao diz para a página curso.html QUAL curso mostrar.
+                             Cada card tem um valor diferente. -->
+                        <a href="curso.html?curso=logica-programacao" class="course-link">
+                            Começar curso
+                            <span class="material-symbols-outlined icon-sm" aria-hidden="true">arrow_forward</span>
+                        </a>
+                    </article>
+
+                    <!-- CARD 2 -->
+                    <article class="course-card" data-categoria="web">
+                        <div class="course-icon icon-orange">
+                            <span class="material-symbols-outlined" aria-hidden="true">web</span>
+                        </div>
+
+                        <span class="course-tag">Desenvolvimento Web</span>
+                        <h3 class="course-title">HTML e CSS</h3>
+                        <p class="course-text">Crie páginas web modernas aprendendo HTML e CSS desde o zero.</p>
+
+                        <div class="course-info">
+                            <span class="course-level">
+                                <span class="material-symbols-outlined icon-xs" aria-hidden="true">signal_cellular_alt</span>
+                                Iniciante
+                            </span>
+                            <span class="course-lessons">
+                                <span class="material-symbols-outlined icon-xs" aria-hidden="true">play_circle</span>
+                                14 aulas
+                            </span>
+                        </div>
+
+                        <a href="curso.html?curso=html-css" class="course-link">
+                            Começar curso
+                            <span class="material-symbols-outlined icon-sm" aria-hidden="true">arrow_forward</span>
+                        </a>
+                    </article>
+
+                    <!-- CARD 3 -->
+                    <article class="course-card" data-categoria="web">
+                        <div class="course-icon icon-yellow">
+                            <span class="material-symbols-outlined" aria-hidden="true">data_object</span>
+                        </div>
+
+                        <span class="course-tag">Desenvolvimento Web</span>
+                        <h3 class="course-title">JavaScript Básico</h3>
+                        <p class="course-text">Introdução ao JavaScript para tornar suas páginas web interativas.</p>
+
+                        <div class="course-info">
+                            <span class="course-level">
+                                <span class="material-symbols-outlined icon-xs" aria-hidden="true">signal_cellular_alt</span>
+                                Iniciante
+                            </span>
+                            <span class="course-lessons">
+                                <span class="material-symbols-outlined icon-xs" aria-hidden="true">play_circle</span>
+                                16 aulas
+                            </span>
+                        </div>
+
+                        <a href="curso.html?curso=javascript" class="course-link">
+                            Começar curso
+                            <span class="material-symbols-outlined icon-sm" aria-hidden="true">arrow_forward</span>
+                        </a>
+                    </article>
+
+                    <!-- CARD 4 -->
+                    <article class="course-card" data-categoria="informatica">
+                        <div class="course-icon icon-green">
+                            <span class="material-symbols-outlined" aria-hidden="true">computer</span>
+                        </div>
+
+                        <span class="course-tag">Informática</span>
+                        <h3 class="course-title">Informática Básica</h3>
+                        <p class="course-text">Aprenda o essencial sobre computadores, internet e produtividade.</p>
+
+                        <div class="course-info">
+                            <span class="course-level">
+                                <span class="material-symbols-outlined icon-xs" aria-hidden="true">signal_cellular_alt</span>
+                                Iniciante
+                            </span>
+                            <span class="course-lessons">
+                                <span class="material-symbols-outlined icon-xs" aria-hidden="true">play_circle</span>
+                                10 aulas
+                            </span>
+                        </div>
+
+                        <a href="curso.html?curso=informatica-basica" class="course-link">
+                            Começar curso
+                            <span class="material-symbols-outlined icon-sm" aria-hidden="true">arrow_forward</span>
+                        </a>
+                    </article>
+
+                    <!-- CARD 5 -->
+                    <article class="course-card" data-categoria="dados">
+                        <div class="course-icon icon-purple">
+                            <span class="material-symbols-outlined" aria-hidden="true">database</span>
+                        </div>
+
+                        <span class="course-tag">Dados</span>
+                        <h3 class="course-title">Banco de Dados</h3>
+                        <p class="course-text">Entenda como guardar e consultar informações usando SQL.</p>
+
+                        <div class="course-info">
+                            <span class="course-level">
+                                <span class="material-symbols-outlined icon-xs" aria-hidden="true">signal_cellular_alt</span>
+                                Iniciante
+                            </span>
+                            <span class="course-lessons">
+                                <span class="material-symbols-outlined icon-xs" aria-hidden="true">play_circle</span>
+                                11 aulas
+                            </span>
+                        </div>
+
+                        <a href="curso.html?curso=banco-de-dados" class="course-link">
+                            Começar curso
+                            <span class="material-symbols-outlined icon-sm" aria-hidden="true">arrow_forward</span>
+                        </a>
+                    </article>
+
+                    <!-- CARD 6 -->
+                    <article class="course-card" data-categoria="informatica">
+                        <div class="course-icon icon-orange">
+                            <span class="material-symbols-outlined" aria-hidden="true">lan</span>
+                        </div>
+
+                        <span class="course-tag">Informática</span>
+                        <h3 class="course-title">Redes de Computadores</h3>
+                        <p class="course-text">Descubra como os computadores se conectam e conversam entre si.</p>
+
+                        <div class="course-info">
+                            <span class="course-level">
+                                <span class="material-symbols-outlined icon-xs" aria-hidden="true">signal_cellular_alt</span>
+                                Iniciante
+                            </span>
+                            <span class="course-lessons">
+                                <span class="material-symbols-outlined icon-xs" aria-hidden="true">play_circle</span>
+                                9 aulas
+                            </span>
+                        </div>
+
+                        <a href="curso.html?curso=redes" class="course-link">
+                            Começar curso
+                            <span class="material-symbols-outlined icon-sm" aria-hidden="true">arrow_forward</span>
+                        </a>
+                    </article>
+
+                    <!-- CARD 7 (novo) -->
+                    <article class="course-card" data-categoria="programacao">
+                        <div class="course-icon icon-blue">
+                            <!-- Ícone: terminal (tela de comandos) -->
+                            <span class="material-symbols-outlined" aria-hidden="true">terminal</span>
+                        </div>
+
+                        <span class="course-tag">Programação</span>
+                        <h3 class="course-title">Python para Iniciantes</h3>
+                        <p class="course-text">Dê os primeiros passos em Python, uma linguagem simples e muito usada.</p>
+
+                        <div class="course-info">
+                            <span class="course-level">
+                                <span class="material-symbols-outlined icon-xs" aria-hidden="true">signal_cellular_alt</span>
+                                Iniciante
+                            </span>
+                            <span class="course-lessons">
+                                <span class="material-symbols-outlined icon-xs" aria-hidden="true">play_circle</span>
+                                15 aulas
+                            </span>
+                        </div>
+
+                        <a href="curso.html?curso=python" class="course-link">
+                            Começar curso
+                            <span class="material-symbols-outlined icon-sm" aria-hidden="true">arrow_forward</span>
+                        </a>
+                    </article>
+
+                    <!-- CARD 8 (novo) -->
+                    <article class="course-card" data-categoria="dados">
+                        <div class="course-icon icon-green">
+                            <!-- Ícone: tabela -->
+                            <span class="material-symbols-outlined" aria-hidden="true">table_chart</span>
+                        </div>
+
+                        <span class="course-tag">Dados</span>
+                        <h3 class="course-title">Planilhas Eletrônicas</h3>
+                        <p class="course-text">Organize informações e faça cálculos com fórmulas e gráficos.</p>
+
+                        <div class="course-info">
+                            <span class="course-level">
+                                <span class="material-symbols-outlined icon-xs" aria-hidden="true">signal_cellular_alt</span>
+                                Iniciante
+                            </span>
+                            <span class="course-lessons">
+                                <span class="material-symbols-outlined icon-xs" aria-hidden="true">play_circle</span>
+                                8 aulas
+                            </span>
+                        </div>
+
+                        <a href="curso.html?curso=planilhas" class="course-link">
+                            Começar curso
+                            <span class="material-symbols-outlined icon-sm" aria-hidden="true">arrow_forward</span>
+                        </a>
+                    </article>
+
+                    <!-- CARD 9 (novo) -->
+                    <article class="course-card" data-categoria="programacao">
+                        <div class="course-icon icon-purple">
+                            <!-- Ícone: "árvore" de ramificações (lembra os branches do Git) -->
+                            <span class="material-symbols-outlined" aria-hidden="true">account_tree</span>
+                        </div>
+
+                        <span class="course-tag">Programação</span>
+                        <h3 class="course-title">Git e GitHub</h3>
+                        <p class="course-text">Salve as versões dos seus projetos e compartilhe seu código na internet.</p>
+
+                        <div class="course-info">
+                            <span class="course-level">
+                                <span class="material-symbols-outlined icon-xs" aria-hidden="true">signal_cellular_alt</span>
+                                Iniciante
+                            </span>
+                            <span class="course-lessons">
+                                <span class="material-symbols-outlined icon-xs" aria-hidden="true">play_circle</span>
+                                8 aulas
+                            </span>
+                        </div>
+
+                        <a href="curso.html?curso=git-github" class="course-link">
+                            Começar curso
+                            <span class="material-symbols-outlined icon-sm" aria-hidden="true">arrow_forward</span>
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ---------------- FOOTER (rodapé) ----------------
+         Mesmo rodapé da página inicial. -->
+    <footer class="footer">
+        <div class="container footer-container">
+
+            <!-- Coluna 1: logo -->
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    <img src="./assets/logo.png" alt="Logo Escola Digital Livre">
+                    <span class="logo-text">
+                        <span class="logo-title">Escola Digital Livre</span>
+                        <span class="logo-subtitle">Tecnologia para todos</span>
+                    </span>
+                </a>
+            </div>
+
+            <!-- Coluna 2: navegação -->
+            <div class="footer-column">
+                <h4>Navegação</h4>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="cursos.html">Cursos</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </div>
+
+            <!-- Coluna 3: links úteis -->
+            <div class="footer-column">
+                <h4>Links úteis</h4>
+                <ul>
+                    <li><a href="index.html#por-que">Como funciona</a></li>
+                    <!-- index.html#por-que = abre a página inicial já na seção id="por-que" -->
+                    <li><a href="contato.html#faq">Perguntas frequentes</a></li>
+                    <li><a href="#">Política de privacidade</a></li>
+                    <li><a href="#">Termos de uso</a></li>
+                </ul>
+            </div>
+
+            <!-- Coluna 4: redes sociais (ícones do Font Awesome) -->
+            <div class="footer-column">
+                <h4>Redes sociais</h4>
+                <div class="social-links">
+                    <a href="https://github.com" target="_blank" aria-label="GitHub">
+                        <i class="fa-brands fa-github" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://youtube.com" target="_blank" aria-label="YouTube">
+                        <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://discord.com" target="_blank" aria-label="Discord">
+                        <i class="fa-brands fa-discord" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <p class="footer-copy">
+            &copy; <span id="ano"></span> Escola Digital Livre. Todos os direitos reservados.
+            <!-- o ano é preenchido pelo JavaScript -->
+        </p>
+    </footer>
+
+    <!-- 1º) Biblioteca do Supabase (baixada da internet pelo CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- 2º) Nossa conexão com o projeto no Supabase -->
+    <script src="js/supabase-config.js"></script>
+
+    <!-- 3º) Nosso script (precisa vir POR ÚLTIMO, pois usa os dois de cima) -->
+    <script src="js/script.js"></script>
+    <!-- Todas as páginas usam o MESMO script.js -->
 </body>
 </html>

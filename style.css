@@ -1,15 +1,16 @@
+/* Variáveis Globais (cores e fontes reutilizadas no CSS) */
 
-/* Variaveis Globais (cores e fontes reutilizadas no CSS) */
 :root {
-    --color-primary: #1a1eff; /* cor principal */
+    --color-primary: #4F46E5; /* cor principal */
     --color-primary-dark: #4339CA; /* versão escura */
-    --color-text: #1e1b2e; /* cor do texto principal */
-    --color-text-light: #6b7280; /* cor de texto secundário */
+    --color-text: #1E1B2E; /* cor do texto principal */
+    --color-text-light: #6B7280; /* cor do texto secundário */
     --color-border: #E5E7EB; /* cor da borda */
     --color-bg: #FFF; /* cor de fundo */
-    --font-main: 'Inter', sans-serif; /* fonte principal */
+    --font-main: 'Inter', sans-serif; /* fonte */
 }
 
+/* Reset básico: remove espaçamentos padrão do navegador */
 * {
     margin: 0; /* Espaçamento externo */
     padding: 0; /* Espaçamento interno */
@@ -17,9 +18,7 @@
 }
 
 body {
-    font-family: var(--font-main); /* Tipo da fonte do Projeto */
-    background-color: var(--color-bg);
-    color: var(--color-text);
+    font-family: var(--font-main); /* Tipo da fonte */
 }
 
 /* HEADER */
@@ -27,60 +26,54 @@ body {
 .header {
     width: 100%;
     background-color: var(--color-bg);
-    border-bottom: 1px solid var(--color-border); /* borda inferior */
-    position: sticky; /* header "gruda" no topo ao rolar a página */
+    border-bottom: 1px solid var(--color-border); /* Borda inferior */
+    position: sticky; /* header "gruda" no topo ao rola a página */
     top: 0;
-    z-index: 100; /* garante que fique acima de outros elementos */
+    z-index: 100; /* garante que fique acima dos outros elementos */
 }
 
 .header-container {
-    max-width: 1200px; /* largura máxima do conteúdo */
-    margin: 0 auto;
+    max-width: 1200px; /* Largura máxima do conteúdo */
+    margin: 0 auto; /* Centraliza na página */
     padding: 16px 24px;
-    display: flex; /* Organizar os elementos lado a lado */
+    display: flex; /* Organiza os elementos lado a lado */
     align-items: center; /* Centraliza verticalmente */
     justify-content: space-between; /* Logo, menu e botões ficam nas pontas */
-    gap: 24px; /* Espaçamento entre os elementos */
+    gap: 24px; /* Espaço entre os elementos */
 }
-
-/* LOGO */
-
 
 /* LOGO */
 
 .logo {
     display: flex;
     align-items: center;
-    gap: 8px;
-    text-decoration: none; /* Remove sublinhado do texto */
-    flex-shrink: 0;
+    gap: 12px;
+    text-decoration: none;
 }
 
 .logo img {
-    width: 60px;
-    height: auto;
-    display: block;
-    flex-shrink: 0;
-}
-
-.logo-tittle {
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--color-text);
-}
-
-.Logo-subtitle {
-    font-size: 12px;
-    color: var(--color-text-light);
+    width: 40px;
+    object-fit: contain; /* Mantém a proporção da imagem */
 }
 
 .logo-text {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Título em cima, subtítulo embaixo*/
 }
 
+.logo-title {
+    font-size: 16px; 
+    font-weight: 700; /* negrito */
+    color: var(--color-text);
+}
 
-/* NAVEGAÇÃO */
+.logo-subtitle {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--color-text-light);
+}
+
+/* NAVEGAÇÃO (Menu) */
 
 .main-nav {
     display: flex;
@@ -89,7 +82,8 @@ body {
 }
 
 .nav-link {
-    text-decoration: none; /* Remove a estilização padrão dos itens */
+    text-decoration: none; /* Remove a estilização padrão dos links *
+    */
     font-size: 14px;
     font-weight: 500;
     color: var(--color-text-light);
@@ -97,7 +91,7 @@ body {
 }
 
 .nav-link:hover {
-    color: var(--color-text); /* Muda a cor ao passar o mouse */
+    color: var(--color-text); /* Muda de cor ao passar o mouse */
 }
 
 .nav-link.active {
@@ -106,33 +100,30 @@ body {
 }
 
 /* AÇÕES HEADER (Busca + botão) */
-
 .header-actions {
     display: flex;
     align-items: center;
     gap: 16px;
 }
 
-/* BUSCA */
-
 .search-box {
-    position: relative; /* Serve para posicionar o ícone da lupa */
+    position: relative; /* serve para posicionar o ícone da lupa */
     display: flex;
     align-items: center;
 }
 
 .search-box input {
     font-family: var(--font-main);
-    padding: 10px 40px 10px 16px; /* Espaço extra à direita para caber o ícone */
     width: 220px;
-    border: 1px solid var(--color-border); /* Borda do input */
-    border-radius: 8px; /* Borda arredondada */
+    padding: 10px 40px 10px 16px; /* Espaço extra à direita para caber o icone */
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
     font-size: 14px;
-    outline: none; /* Remove a borda azul padrão do navegador */
+    outline: none; /* Remove a borda azul pdrão do navegador */
 }
 
 .search-box input:focus {
-    border-color: var(--color-primary); /* Muda a cor da borda ao focar */
+    border-color: var(--color-primary);
 }
 
 .search-box input::placeholder {
@@ -143,8 +134,8 @@ body {
     position: absolute; /* Posiciona o ícone sobre o input */
     right: 14px;
     fill: var(--color-text-light); /* Cor do ícone SVG */
-    pointer-events: none; /* Impede o ícone de atrapalhar a clicar no input */
-    width: 20px;
+    pointer-events: none; /* Impede o ícone de atrapalhar o clique no input */
+    width: 25px; /* Tamanho do ícone de pesquisa */
 }
 
 .btn-primary {
@@ -161,9 +152,10 @@ body {
 }
 
 .btn-primary:hover {
-    background-color: var(--color-primary-dark); /* Muda a cor ao passar o mouse */
+    background-color: var(--color-primary-dark);
 }
 
+/* Oculta o menu hamburguer para telas desktop */
 .hamburguer {
     display: none;
     font-size: 24px;
@@ -179,11 +171,10 @@ body {
         display: none;
     }
 
-    /*Classe que o java script */
     .main-nav {
         display: none;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: flex-end;
 
         position: absolute;
         top: 100%;
@@ -195,18 +186,20 @@ body {
         gap: 16px;
     }
 
-    /* Classe adicionada pelo JavaScript para abrir o menu */
-    .main-nav.active {
+    /* Classe que o JavaScript liga/desliga */
+    .main-nav.ativo {
         display: flex;
     }
 
     .btn-primary {
-        display: flex;
+        display: none;
     }
 
     .hamburguer {
         display: flex;
     }
+
+
 }
 
 
@@ -769,4 +762,863 @@ ul {
     .footer-container {
         grid-template-columns: 1fr;
     }
+}
+
+/* =========================================================
+   =========================================================
+   PARTE 3 — NOVAS PÁGINAS
+   Cursos, Sobre, Contato, Entrar e Cadastrar.
+   Tudo daqui para baixo é novo. O código acima não mudou.
+
+   DICA: repare que REAPROVEITAMOS muitas classes que já
+   existiam (container, section-title, course-card,
+   course-icon...). Escrever uma classe uma vez e usar em
+   várias páginas economiza código e deixa o site padronizado.
+   ========================================================= 
+   ========================================================= */
+
+
+/* =========================================================
+   AJUSTES NO HEADER
+   ========================================================= */
+
+/* O "Começar agora" virou um link <a>.
+   Links têm sublinhado por padrão, então tiramos aqui.
+   ATENÇÃO: NÃO colocamos "display" nesta regra! "a.btn-primary" é mais
+   forte que ".btn-primary" e iria vencer o "display: none" que esconde
+   o botão no celular (lá na parte do menu hambúrguer). */
+a.btn-primary {
+    text-decoration: none;
+}
+
+/* Link "Entrar / Cadastrar" do menu: escondido no computador... */
+.nav-link-mobile {
+    display: none;
+}
+
+/* ...e visível só no celular, dentro do menu hambúrguer */
+@media (max-width: 768px) {
+    .main-nav .nav-link-mobile {
+        display: block;
+        color: var(--color-primary);
+        font-weight: 600;
+    }
+}
+
+
+/* =========================================================
+   TOPO DAS PÁGINAS INTERNAS (page-hero)
+   Usado em Cursos, Sobre e Contato.
+   ========================================================= */
+.page-hero {
+    /* mesmo degradê do hero da página inicial */
+    background: linear-gradient(180deg, var(--color-bg-soft) 0%, #FFF 100%);
+    padding: 56px 0 32px;
+    text-align: center; /* centraliza todo o texto */
+}
+
+/* Etiqueta pequena acima do título */
+.page-tag {
+    display: inline-block;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 4px 14px;
+    border-radius: 999px; /* valor bem alto = pontas totalmente arredondadas ("pílula") */
+    margin-bottom: 12px;
+}
+
+.page-title {
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 12px;
+}
+
+.page-text {
+    font-size: 17px;
+    color: #374151;
+    max-width: 620px;
+    margin: 0 auto; /* "auto" nas laterais centraliza o bloco */
+}
+
+
+/* =========================================================
+   PÁGINA CURSOS
+   ========================================================= */
+
+/* Botões de filtro */
+.filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* se não couber, desce de linha */
+    gap: 10px;
+    margin-bottom: 32px;
+}
+
+.filter-btn {
+    font-family: var(--font-main); /* botões não herdam a fonte sozinhos */
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 18px;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    background-color: var(--color-bg);
+    color: var(--color-text-light);
+    cursor: pointer;
+    transition: all 0.2s ease; /* "all" = anima todas as mudanças */
+}
+
+.filter-btn:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+/* Botão selecionado (a classe "active" é trocada pelo JavaScript) */
+.filter-btn.active {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: #FFF;
+}
+
+/* GRADE de cards
+   auto-fill + minmax(260px, 1fr) = "coloque quantas colunas couberem,
+   cada uma com no mínimo 260px". Assim a grade se ajusta sozinha
+   ao tamanho da tela, sem precisar de @media! */
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 24px;
+}
+
+/* Etiqueta da categoria dentro do card */
+.course-tag {
+    align-self: flex-start; /* não estica: fica só do tamanho do texto */
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-primary);
+    background-color: var(--color-primary-light);
+    padding: 2px 10px;
+    border-radius: 999px;
+    margin-bottom: 8px;
+}
+
+/* Link "Começar curso" no final do card */
+.course-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--color-border); /* linha separando do resto do card */
+    color: var(--color-primary);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.course-link:hover {
+    color: var(--color-primary-dark);
+}
+
+/* Classe colocada pelo JavaScript nos cards que NÃO combinam com o filtro */
+.course-card.escondido {
+    display: none; /* display: none = some da tela */
+}
+
+
+/* =========================================================
+   PÁGINA SOBRE
+   ========================================================= */
+
+/* Nossa história: texto + imagem lado a lado */
+.about {
+    padding: 56px 0;
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+}
+
+.about-text  { flex: 1.2; }
+.about-image { flex: 1; }
+
+.about-image img {
+    max-width: 100%;
+}
+
+.about-text .section-title {
+    margin-bottom: 16px;
+}
+
+.about-text p {
+    color: #374151;
+    margin-bottom: 16px;
+}
+
+/* Faixa de números */
+.stats {
+    background-color: var(--color-primary);
+    color: #FFF;
+    padding: 40px 0;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 colunas iguais */
+    gap: 24px;
+    text-align: center;
+}
+
+.stat-number {
+    display: block;     /* número em cima, texto embaixo */
+    font-size: 36px;
+    font-weight: 800;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: #E0E7FF;     /* branco levemente azulado */
+}
+
+/* Missão, visão e valores */
+.values {
+    padding: 56px 0;
+}
+
+.values .section-title,
+.steps .section-title,
+.faq .section-title {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.value-card {
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 28px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Mesmo efeito de "subir" dos cards de curso */
+.value-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+.value-card h3 {
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+
+.value-card p {
+    font-size: 14px;
+    color: #4B5563;
+}
+
+/* Como começar (passo a passo) */
+.steps {
+    background-color: var(--color-bg-soft);
+    padding: 56px 0;
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    list-style: none; /* tira os números automáticos do <ol>: nós mesmos escrevemos os números */
+}
+
+.step {
+    text-align: center;
+    padding: 0 12px;
+}
+
+/* Círculo com o número do passo */
+.step-number {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    color: #FFF;
+    font-size: 20px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px; /* centraliza e dá espaço embaixo */
+}
+
+.step h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.step p {
+    font-size: 14px;
+    color: #4B5563;
+}
+
+/* Chamada final (CTA) */
+.cta {
+    padding: 56px 0;
+}
+
+.cta-box {
+    /* 135deg = degradê na diagonal */
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-footer) 100%);
+    color: #FFF;
+    border-radius: 16px;
+    padding: 48px 32px;
+    text-align: center;
+}
+
+.cta-box h2 {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.cta-box p {
+    color: #E0E7FF;
+    margin-bottom: 24px;
+}
+
+/* Botão branco (aparece bem sobre o fundo escuro) */
+.btn-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #FFF;
+    color: var(--color-primary);
+    font-weight: 600;
+    padding: 12px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.btn-cta:hover {
+    background-color: var(--color-primary-light);
+}
+
+
+/* =========================================================
+   PÁGINA CONTATO
+   ========================================================= */
+.contact {
+    padding: 56px 0;
+}
+
+/* Duas colunas: informações (menor) e formulário (maior) */
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 48px;
+    align-items: start; /* as colunas não esticam até a mesma altura */
+}
+
+.contact-info .section-title {
+    margin-bottom: 8px;
+}
+
+/* ">" = só o <p> que é filho DIRETO de .contact-info */
+.contact-info > p {
+    color: #4B5563;
+    margin-bottom: 24px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    margin-bottom: 16px;
+}
+
+/* O course-icon tem margem embaixo nos cards; aqui não precisamos dela */
+.contact-item .course-icon {
+    margin-bottom: 0;
+    flex-shrink: 0;
+}
+
+.contact-item h3 {
+    font-size: 15px;
+}
+
+.contact-item p {
+    font-size: 14px;
+    color: #4B5563;
+    word-break: break-word; /* quebra o e-mail se ele não couber */
+}
+
+/* Perguntas frequentes */
+.faq {
+    background-color: var(--color-bg-soft);
+    padding: 56px 0;
+}
+
+.faq-list {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    margin-bottom: 12px;
+}
+
+/* A pergunta (summary) */
+.faq-item summary {
+    padding: 18px 20px;
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;   /* tira a setinha padrão (Firefox) */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.faq-item summary::-webkit-details-marker {
+    display: none;      /* tira a setinha padrão (Chrome, Edge, Safari) */
+}
+
+/* ::after cria um "elemento extra" no final, só com CSS.
+   Usamos para desenhar o sinal de + */
+.faq-item summary::after {
+    content: "+";
+    font-size: 22px;
+    color: var(--color-primary);
+}
+
+/* [open] = quando o details está ABERTO, o + vira − */
+.faq-item[open] summary::after {
+    content: "−";
+}
+
+/* A resposta */
+.faq-item p {
+    padding: 0 20px 18px;
+    font-size: 14px;
+    color: #4B5563;
+}
+
+
+/* =========================================================
+   FORMULÁRIOS
+   Estas classes servem para TODOS os formulários do site:
+   contato, entrar e cadastrar.
+   ========================================================= */
+
+/* Caixa branca em volta do formulário de contato */
+.form-card {
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+/* Dois campos lado a lado */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+/* Cada "grupo" = um label + um campo */
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;     /* o label fica em cima do campo */
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+/* Visual dos campos: input, select e textarea */
+.form-control {
+    font-family: var(--font-main);
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    font-size: 15px;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* :focus = quando o usuário clica no campo para digitar */
+.form-control:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px var(--color-primary-light); /* "brilho" em volta do campo */
+}
+
+textarea.form-control {
+    resize: vertical;   /* o usuário só pode aumentar a altura, não a largura */
+    min-height: 130px;
+}
+
+/* Texto de ajuda embaixo do campo */
+.form-hint {
+    display: block;
+    font-size: 12px;
+    color: var(--color-text-light);
+    margin-top: 4px;
+}
+
+/* Campo de senha + botão do "olho" */
+.password-box {
+    position: relative; /* referência para posicionar o botão */
+}
+
+.password-box .form-control {
+    padding-right: 48px; /* espaço para o botão não ficar em cima do texto */
+}
+
+.toggle-senha {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%); /* centraliza na vertical (mesmo truque do carrossel) */
+    background: none;
+    border: none;
+    color: var(--color-text-light);
+    cursor: pointer;
+    display: flex;
+    padding: 4px;
+}
+
+.toggle-senha:hover {
+    color: var(--color-primary);
+}
+
+/* Linha com checkbox e link */
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.checkbox {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #4B5563;
+    cursor: pointer;
+}
+
+.checkbox input {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--color-primary); /* pinta o checkbox com a cor principal */
+}
+
+.form-link {
+    color: var(--color-primary);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.form-link:hover {
+    text-decoration: underline;
+}
+
+/* Botão dos formulários.
+   Não usamos .btn-primary porque ele fica escondido no celular! */
+.btn-form {
+    font-family: var(--font-main);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: var(--color-primary);
+    color: #FFF;
+    border: none;
+    padding: 13px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-form:hover {
+    background-color: var(--color-primary-dark);
+}
+
+/* Mensagem de retorno: começa ESCONDIDA.
+   O JavaScript adiciona a classe "sucesso" ou "erro" para ela aparecer. */
+.form-message {
+    display: none;
+    margin-top: 16px;
+    padding: 12px 14px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.form-message.sucesso {
+    display: block;
+    background-color: #DCFCE7; /* verde clarinho */
+    color: #166534;            /* verde escuro */
+}
+
+.form-message.erro {
+    display: block;
+    background-color: #FEE2E2; /* vermelho clarinho */
+    color: #991B1B;            /* vermelho escuro */
+}
+
+
+/* =========================================================
+   PÁGINAS ENTRAR E CADASTRAR
+   ========================================================= */
+.auth-page {
+    background-color: var(--color-bg-soft);
+}
+
+/* A tela dividida em duas colunas */
+.auth-wrapper {
+    min-height: 100vh; /* vh = altura da tela. 100vh = a tela inteira */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+/* Painel colorido da esquerda */
+.auth-side {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-footer) 100%);
+    color: #FFF;
+    padding: 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* logo em cima, texto no meio, rodapé embaixo */
+}
+
+/* Fundo escuro: textos do logo ficam claros (igual ao footer) */
+.auth-side .logo-title    { color: #FFF; }
+.auth-side .logo-subtitle { color: #CBD5E1; }
+
+.auth-side-title {
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 24px;
+    max-width: 420px;
+}
+
+.auth-benefits li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    color: #E0E7FF;
+}
+
+.auth-benefits .material-symbols-outlined {
+    color: #86EFAC; /* verde claro */
+}
+
+.auth-side-footer {
+    color: #CBD5E1;
+}
+
+/* Coluna da direita, onde fica o formulário */
+.auth-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;     /* centraliza na horizontal */
+    justify-content: center; /* centraliza na vertical */
+    padding: 48px 24px;
+}
+
+.auth-back {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--color-text-light);
+    font-size: 14px;
+    text-decoration: none;
+    margin-bottom: 24px;
+}
+
+.auth-back:hover {
+    color: var(--color-primary);
+}
+
+/* O "cartão" branco com o formulário */
+.auth-card {
+    width: 100%;
+    max-width: 420px;
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 40px 32px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+.auth-title {
+    font-size: 26px;
+    font-weight: 800;
+    margin-bottom: 4px;
+}
+
+.auth-subtitle {
+    color: var(--color-text-light);
+    margin-bottom: 28px;
+}
+
+/* "Não tem conta? Cadastre-se" */
+.auth-switch {
+    text-align: center;
+    font-size: 14px;
+    color: var(--color-text-light);
+    margin-top: 24px;
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE DAS NOVAS PÁGINAS
+   ========================================================= */
+
+/* Tablets (até 992px) */
+@media (max-width: 992px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr); /* 4 colunas viram 2 */
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr; /* informações em cima, formulário embaixo */
+    }
+
+    .auth-wrapper {
+        grid-template-columns: 1fr; /* só uma coluna */
+    }
+
+    .auth-side {
+        display: none; /* esconde o painel colorido para dar espaço ao formulário */
+    }
+}
+
+/* Celulares (até 768px) */
+@media (max-width: 768px) {
+    .page-hero {
+        padding: 40px 0 24px;
+    }
+
+    .page-title {
+        font-size: 28px;
+    }
+
+    .about-container {
+        flex-direction: column-reverse; /* imagem em cima, texto embaixo */
+        gap: 24px;
+    }
+
+    .values-grid,
+    .steps-grid,
+    .form-grid {
+        grid-template-columns: 1fr; /* tudo em uma coluna só */
+    }
+
+    .form-card,
+    .auth-card {
+        padding: 24px 20px;
+    }
+
+    .auth-main {
+        padding: 24px 16px;
+    }
+}
+
+
+/* =========================================================
+   PARTE 4 — AUTENTICAÇÃO COM SUPABASE
+   ========================================================= */
+
+/* PASSO 3: botão desativado enquanto espera a resposta do Supabase.
+   :disabled = quando o botão tem o atributo "disabled" (colocado pelo JS) */
+.btn-form:disabled {
+    opacity: 0.6;          /* fica meio transparente */
+    cursor: not-allowed;   /* cursor de "proibido" */
+}
+
+
+/* PASSO 5: página do curso (curso.html) */
+
+/* Ícone grande e centralizado no topo */
+.course-hero-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    margin: 0 auto 16px;    /* "auto" nas laterais centraliza */
+}
+
+/* Duas classes juntas = regra mais forte que a do Google (veja a parte dos ícones) */
+.course-hero-icon .material-symbols-outlined {
+    font-size: 36px;
+}
+
+/* Nível e aulas, centralizados embaixo da descrição */
+.course-hero-info {
+    justify-content: center;
+    gap: 24px;
+    margin-top: 20px;
+}
+
+/* Caixa de "Conteúdo em breve" com borda tracejada */
+.coming-soon {
+    max-width: 560px;
+    margin: 0 auto;
+    text-align: center;
+    border: 2px dashed var(--color-border); /* dashed = tracejada */
+    border-radius: 16px;
+    padding: 48px 32px;
+}
+
+.material-symbols-outlined.coming-soon-icon {
+    font-size: 48px;
+    color: var(--color-primary);
+}
+
+.coming-soon h2 {
+    font-size: 24px;
+    margin: 12px 0 8px;
+}
+
+.coming-soon p {
+    color: #4B5563;
+    margin-bottom: 24px;
+}
+
+
+/* PASSO 6: saudação "Olá, Nome!" no header */
+.user-greeting {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text);
+    white-space: nowrap;   /* não quebra o nome em duas linhas */
 }

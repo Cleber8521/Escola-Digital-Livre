@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<!-- Declara que este documento usa HTML5 -->
+
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre | Escola Digital Livre</title>
+    <!-- Cada página tem um título diferente na aba do navegador -->
+
+    <link rel="stylesheet" href="style.css">
+    <!-- Conecta o arquivo de estilos (CSS). Todas as páginas usam o MESMO style.css -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <!-- Importando fonte do Google Fonts -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block" rel="stylesheet">
+    <!-- Ícones Material Symbols (Google Fonts) -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Font Awesome: ícones das redes sociais no rodapé -->
+</head>
+<body>
+
+    <header class="header">
+        <!-- Cabeçalho igual ao da página inicial.
+             Ele se repete em todas as páginas para o menu ficar sempre no mesmo lugar. -->
+        <div class="header-container">
+
+            <a href="index.html" class="logo">
+                <!-- Logo clicável, leva para a página inicial -->
+                <img src="./assets/logo.png" alt="Logo Escola Digital Livre">
+                <span class="logo-text">
+                    <span class="logo-title">Escola Digital Livre</span>
+                    <span class="logo-subtitle">Tecnologia para todos</span>
+                </span>
+            </a>
+
+            <nav class="main-nav">
+                <!-- A classe "active" fica no link da página em que estamos -->
+                <a href="index.html" class="nav-link">Inicio</a>
+                <a href="cursos.html" class="nav-link">Cursos</a>
+                <a href="sobre.html" class="nav-link active">Sobre</a>
+                <a href="contato.html" class="nav-link">Contato</a>
+
+                <!-- Link que só aparece no menu do CELULAR
+                     (no celular, o botão "Começar agora" fica escondido) -->
+                <a href="entrar.html" class="nav-link nav-link-mobile">Entrar / Cadastrar</a>
+            </nav>
+
+            <div class="header-actions">
+                <div class="search-box">
+                    <input type="text" placeholder="Buscar cursos...">
+                    <span class="material-symbols-outlined search-icon" aria-hidden="true">search</span>
+                </div>
+
+                <!-- PASSO 6: saudação ao aluno logado. Começa escondida (hidden);
+                     o JavaScript escreve "Olá, Nome!" e mostra quando há alguém logado -->
+                <span class="user-greeting" id="saudacao" hidden></span>
+
+                <a href="entrar.html" class="btn-primary">Começar agora</a>
+                <!-- Agora é um link <a> com aparência de botão: ao clicar, abre a página de login -->
+            </div>
+
+            <!-- Botão do menu hamburguer (funciona apenas para mobile) -->
+            <button class="hamburguer" id="btn-menu">☰</button>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ---------------- TOPO DA PÁGINA ---------------- -->
+        <section class="page-hero">
+            <div class="container">
+                <span class="page-tag">Sobre nós</span>
+                <h1 class="page-title">Conheça a Escola Digital Livre</h1>
+                <p class="page-text">
+                    Acreditamos que qualquer pessoa pode aprender tecnologia.
+                    Basta ter vontade e um bom lugar para começar.
+                </p>
+            </div>
+        </section>
+
+
+        <!-- ---------------- NOSSA HISTÓRIA ----------------
+             Texto de um lado e imagem do outro (igual ao hero da página inicial) -->
+        <section class="about">
+            <div class="container about-container">
+
+                <div class="about-text">
+                    <h2 class="section-title">Nossa história</h2>
+
+                    <p>
+                        A Escola Digital Livre nasceu de uma ideia simples: ensinar
+                        programação e informática de graça, com uma linguagem fácil
+                        de entender.
+                    </p>
+                    <p>
+                        Muita gente tem vontade de aprender tecnologia, mas desiste
+                        porque os conteúdos parecem difíceis ou são caros. Por isso,
+                        criamos cursos curtos, práticos e pensados para quem está
+                        começando do zero.
+                    </p>
+                    <p>
+                        Aqui você aprende no seu tempo, sem pressão, e pode voltar
+                        às aulas quantas vezes quiser.
+                    </p>
+                </div>
+
+                <div class="about-image">
+                    <!-- Reaproveitamos a mesma ilustração da página inicial -->
+                    <img src="./assets/banner-ilustracao.svg" alt="Ilustração de um notebook com código, livros e uma planta">
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ---------------- NÚMEROS ----------------
+             Faixa colorida com alguns números da escola. -->
+        <section class="stats">
+            <div class="container stats-grid">
+                <div class="stat">
+                    <strong class="stat-number">9</strong>
+                    <span class="stat-label">cursos disponíveis</span>
+                </div>
+                <div class="stat">
+                    <strong class="stat-number">+100</strong>
+                    <span class="stat-label">aulas em vídeo</span>
+                </div>
+                <div class="stat">
+                    <strong class="stat-number">100%</strong>
+                    <span class="stat-label">gratuito</span>
+                </div>
+                <div class="stat">
+                    <strong class="stat-number">24h</strong>
+                    <span class="stat-label">acesso a qualquer hora</span>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ---------------- MISSÃO, VISÃO E VALORES ---------------- -->
+        <section class="values">
+            <div class="container">
+                <h2 class="section-title">O que nos move</h2>
+
+                <div class="values-grid">
+
+                    <article class="value-card">
+                        <!-- Reaproveitamos o quadrado colorido dos cards de curso (course-icon) -->
+                        <div class="course-icon icon-purple">
+                            <!-- Ícone: bandeira -->
+                            <span class="material-symbols-outlined" aria-hidden="true">flag</span>
+                        </div>
+                        <h3>Missão</h3>
+                        <p>Levar o ensino de tecnologia para todas as pessoas, de forma gratuita e acessível.</p>
+                    </article>
+
+                    <article class="value-card">
+                        <div class="course-icon icon-blue">
+                            <!-- Ícone: olho -->
+                            <span class="material-symbols-outlined" aria-hidden="true">visibility</span>
+                        </div>
+                        <h3>Visão</h3>
+                        <p>Ser uma das principais portas de entrada para quem quer começar na área de tecnologia.</p>
+                    </article>
+
+                    <article class="value-card">
+                        <div class="course-icon icon-green">
+                            <!-- Ícone: coração -->
+                            <span class="material-symbols-outlined" aria-hidden="true">favorite</span>
+                        </div>
+                        <h3>Valores</h3>
+                        <p>Respeito, colaboração, inclusão e vontade de aprender sempre um pouco mais.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ---------------- COMO COMEÇAR (passo a passo) ---------------- -->
+        <section class="steps">
+            <div class="container">
+                <h2 class="section-title">Como começar</h2>
+
+                <!-- ol: lista NUMERADA (ordered list), porque a ordem dos passos importa -->
+                <ol class="steps-grid">
+                    <li class="step">
+                        <span class="step-number">1</span>
+                        <h3>Crie sua conta</h3>
+                        <p>O cadastro é rápido e gratuito. Só precisa de nome, e-mail e senha.</p>
+                    </li>
+                    <li class="step">
+                        <span class="step-number">2</span>
+                        <h3>Escolha um curso</h3>
+                        <p>Veja a lista de cursos e escolha o que mais combina com você.</p>
+                    </li>
+                    <li class="step">
+                        <span class="step-number">3</span>
+                        <h3>Estude no seu ritmo</h3>
+                        <p>Assista às aulas quando quiser e pratique com os exercícios.</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+
+        <!-- ---------------- CHAMADA FINAL (CTA) ----------------
+             CTA = "Call To Action" (chamada para ação):
+             um bloco que convida o visitante a fazer algo. -->
+        <section class="cta">
+            <div class="container">
+                <div class="cta-box">
+                    <h2>Pronto para começar?</h2>
+                    <p>Crie sua conta gratuita e comece a aprender hoje mesmo.</p>
+                    <a href="cadastro.html" class="btn-cta">
+                        Criar minha conta
+                        <span class="material-symbols-outlined icon-sm" aria-hidden="true">arrow_forward</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ---------------- FOOTER (rodapé) ----------------
+         Mesmo rodapé da página inicial. -->
+    <footer class="footer">
+        <div class="container footer-container">
+
+            <!-- Coluna 1: logo -->
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    <img src="./assets/logo.png" alt="Logo Escola Digital Livre">
+                    <span class="logo-text">
+                        <span class="logo-title">Escola Digital Livre</span>
+                        <span class="logo-subtitle">Tecnologia para todos</span>
+                    </span>
+                </a>
+            </div>
+
+            <!-- Coluna 2: navegação -->
+            <div class="footer-column">
+                <h4>Navegação</h4>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="cursos.html">Cursos</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </div>
+
+            <!-- Coluna 3: links úteis -->
+            <div class="footer-column">
+                <h4>Links úteis</h4>
+                <ul>
+                    <li><a href="index.html#por-que">Como funciona</a></li>
+                    <!-- index.html#por-que = abre a página inicial já na seção id="por-que" -->
+                    <li><a href="contato.html#faq">Perguntas frequentes</a></li>
+                    <li><a href="#">Política de privacidade</a></li>
+                    <li><a href="#">Termos de uso</a></li>
+                </ul>
+            </div>
+
+            <!-- Coluna 4: redes sociais (ícones do Font Awesome) -->
+            <div class="footer-column">
+                <h4>Redes sociais</h4>
+                <div class="social-links">
+                    <a href="https://github.com" target="_blank" aria-label="GitHub">
+                        <i class="fa-brands fa-github" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://youtube.com" target="_blank" aria-label="YouTube">
+                        <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://discord.com" target="_blank" aria-label="Discord">
+                        <i class="fa-brands fa-discord" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <p class="footer-copy">
+            &copy; <span id="ano"></span> Escola Digital Livre. Todos os direitos reservados.
+            <!-- o ano é preenchido pelo JavaScript -->
+        </p>
+    </footer>
+
+    <!-- 1º) Biblioteca do Supabase (baixada da internet pelo CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- 2º) Nossa conexão com o projeto no Supabase -->
+    <script src="js/supabase-config.js"></script>
+
+    <!-- 3º) Nosso script (precisa vir POR ÚLTIMO, pois usa os dois de cima) -->
+    <script src="js/script.js"></script>
+    <!-- Todas as páginas usam o MESMO script.js -->
+</body>
+</html>
