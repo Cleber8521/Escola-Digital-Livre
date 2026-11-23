@@ -14,12 +14,12 @@
 
 
 // 1) ENDEREÇO do nosso projeto no Supabase (Project URL)
-const SUPABASE_URL = "SUPABASE_URL=https://uejumdmrohpgawmibntq.supabase.co";
+const SUPABASE_URL = "https://uejumdmrohpgawmibntq.supabase.co";
 
 // 2) CHAVE PÚBLICA do projeto (Publishable key)
 //    Ela PODE ficar no código do site: foi feita para isso.
 //    NUNCA coloque aqui a "secret key" nem a senha do banco!
-const SUPABASE_KEY = "SUPABASE_PUBLISHABLE_KEY=sb_publishable_ryL1cxfS1XB_iDJODH9M5A_fbpg9tt_";
+const SUPABASE_KEY = "sb_publishable_ryL1cxfS1XB_iDJODH9M5A_fbpg9tt_";
 
 
 // 3) CRIANDO A CONEXÃO
@@ -32,3 +32,5 @@ const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 // Mensagem de teste: se aparecer no Console (F12), a conexão foi criada.
 console.log("Supabase conectado!");
+
+// Senha: escola-digital-livre
